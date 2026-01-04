@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --muted: rgba(2, 6, 23, 0.55);
+  --text: #0b1220;
+
+  --primary: #10b981; /* emerald */
+  --accent: #ff4fd8;  /* pink */
+  --border: rgba(2, 6, 23, 0.10);
+
+  --ring: color-mix(in oklab, var(--primary) 65%, white);
+}
+
+.dark {
+  --bg: #0b0f14;      /* deep charcoal */
+  --card: #0f1620;
+  --muted: rgba(230, 237, 247, 0.60);
+  --text: #e6edf7;
+
+  --primary: #20f3a1; /* neon emerald */
+  --accent: #ff4fd8;  /* pink */
+  --border: rgba(230, 237, 247, 0.12);
+
+  --ring: color-mix(in oklab, var(--primary) 70%, black);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background: radial-gradient(1200px 800px at 12% -10%,
+    color-mix(in oklab, var(--primary) 14%, transparent),
+    transparent 55%),
+    radial-gradient(900px 700px at 110% 10%,
+    color-mix(in oklab, var(--accent) 12%, transparent),
+    transparent 50%),
+    var(--bg);
+  color: var(--text);
+  font-feature-settings: "ss01" 1, "ss02" 1;
+}
+
+.glass {
+  background: color-mix(in oklab, var(--card) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+}
+
+.ring-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 25%, transparent);
+  border-color: color-mix(in oklab, var(--primary) 40%, var(--border));
+}
