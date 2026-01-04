@@ -1,0 +1,12 @@
+version: '3'
+services:
+  devolo-rtmp:
+    image: tiangolo/nginx-rtmp:latest
+    container_name: devolo-rtmp
+    ports:
+      - "1935:1935"  # RTMP stream port
+      - "8081:8081"  # HLS stream port
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Make sure this points to your nginx config
+      - /tmp/hls:/tmp/hls  # Map your HLS storage directory
+    restart: always
